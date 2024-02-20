@@ -13,6 +13,14 @@ import java.util.List;
 public class BoardRepository {
     private final EntityManager em;
 
+    public void delete(String title) {
+        Query query = em.createNativeQuery("delete from board_tb where title = ?", Board.class);
+        query.setParameter(1, title);
+
+        query.executeUpdate();
+    }
+
+
     public void update(String content, String content2) {
         Query query = em.createNativeQuery("update board_tb set content = ? where content = ?", Board.class);
         query.setParameter(1, content);

@@ -16,6 +16,16 @@ public class BoardRepositoryTest {
     private BoardRepository boardRepository;
 
     @Test
+    public void delete_test() {
+        String title = "제목1";
+
+        boardRepository.delete(title);
+        List<Board> board = boardRepository.selectAll();
+        System.out.println(board);
+    }
+
+
+    @Test
     public void update_test() {
         String content = "내용입니다.";
         String content2 = "내용1";
